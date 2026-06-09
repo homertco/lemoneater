@@ -1,0 +1,71 @@
+local StarterGui = game:GetService("StarterGui")
+
+StarterGui:SetCore("SendNotification", {
+    Title = "Lemon Eater",
+    Text = "This is a very simple autofsrm.",
+    Duration = 3
+})
+task.wait(0.7)
+
+local StarterGui = game:GetService("StarterGui")
+
+StarterGui:SetCore("SendNotification", {
+    Title = "Autofarm set!",
+    Text = "Sit back, relax, and enjoy your lemons!",
+    Duration = 3
+})
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function getMyTycoon()
+    for _, tycoon in ipairs(workspace:GetChildren()) do
+        local owner = tycoon:FindFirstChild("Owner")
+
+        if owner and owner.Value == LocalPlayer then
+            return tycoon
+        end
+    end
+end
+
+while true do
+    local myTycoon = getMyTycoon()
+
+    if myTycoon then
+        pcall(function()
+            myTycoon.Remotes.WakeIncomeStream:InvokeServer("LemonDash")
+        end)
+
+        pcall(function()
+            myTycoon.Remotes.WakeIncomeStream:InvokeServer("LemonStand")
+        end)
+
+        pcall(function()
+            myTycoon.Purchases["Lemon Stand"]["Lemon Stand"]["Lemon Stand"].Upgrade:InvokeServer(1)
+        end)
+
+        pcall(function()
+            myTycoon.Purchases.LemonDash.LemonDash.LemonDash.Upgrade:InvokeServer(1)
+        end)
+    end
+end
+while true do
+    local myTycoon = getMyTycoon()
+
+    if myTycoon then
+        pcall(function()
+            myTycoon.Remotes.WakeIncomeStream:InvokeServer("LemonDash")
+        end)
+
+        pcall(function()
+            myTycoon.Remotes.WakeIncomeStream:InvokeServer("LemonStand")
+        end)
+
+        pcall(function()
+            myTycoon.Purchases["Lemon Stand"]["Lemon Stand"]["Lemon Stand"].Upgrade:InvokeServer(1)
+        end)
+
+        pcall(function()
+            myTycoon.Purchases.LemonDash.LemonDash.LemonDash.Upgrade:InvokeServer(1)
+        end)
+    end
+end
